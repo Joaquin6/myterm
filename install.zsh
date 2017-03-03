@@ -19,6 +19,9 @@ ln ~/.dotfiles/dots/home/tmux.conf               ~/.tmux.conf
 ln ~/.dotfiles/dots/home/vimrc                   ~/.vimrc
 ln ~/.dotfiles/dots/home/zshrc                   ~/.zshrc
 
+ln -s ~/.dotfiles/plugins/lambda-pure/lambda-pure.zsh ~/.dotfiles/dots/zsh/zfunctions/prompt_lambda-pure_setup
+ln -s ~/.dotfiles/plugins/lambda-pure/async.zsh ~/.dotfiles/dots/zsh/zfunctions/async
+
 # Do special to sync sublime settings on OS X
 if [[ "$OSTYPE" =~ "darwin" ]]; then
   rm ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
@@ -26,9 +29,12 @@ if [[ "$OSTYPE" =~ "darwin" ]]; then
   ln -s ~/.dotfiles/settings/SublimeText/User      ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 fi
 
-
 # install powerline fonts
 ~/.dotfiles/powerline-fonts/install.sh
+
+# Symlink (or copy) lambda-pure.zsh to ~/.oh-my-zsh/custom/themes/lambda-pure.zsh-theme.
+# Set ZSH_THEME="lambda-pure" in your .zshrc file.
+copy ~/.dotfiles/plugins/lambda-pure/lambda-pure.zsh ~/.oh-my-zsh/custom/themes/lambda-pure.zsh-theme
 
 #!/bin/zsh
 
